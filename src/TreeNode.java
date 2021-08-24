@@ -1,7 +1,10 @@
-public class TreeNode {
-    int value;
-    TreeNode leftNode;
-    TreeNode rightNode;
+import java.util.ArrayList;
+import java.util.List;
+
+class TreeNode {
+    private int value;
+    private TreeNode leftNode;
+    private TreeNode rightNode;
 
     TreeNode() {
 
@@ -17,7 +20,7 @@ public class TreeNode {
         this.rightNode = rightNode;
     }
 
-    public static void defaultGeneration(TreeNode root) {
+    static void defaultGeneration(TreeNode root) {
         if ((root != null) && (root.leftNode == null) && (root.rightNode == null)) {
             root.leftNode = new TreeNode(1,
                     new TreeNode(2,                 //   Автоматически генерирует дерево вида:
@@ -35,7 +38,7 @@ public class TreeNode {
                             new TreeNode(14)));
         }
 
-        if (root == null) {                                //   Автоматически генерирует дерево вида:
+        if (root.value == 0) {                                //   Автоматически генерирует дерево вида:
             root.value = 1;                                //               1
             root.leftNode = new TreeNode(2,          //             /   \
                     new TreeNode(4),                 //            2     3
@@ -43,6 +46,28 @@ public class TreeNode {
             root.rightNode = new TreeNode(3,         //         4    5 6    7
                     new TreeNode(6),                 //
                     new TreeNode(7));
+        }
+    }
+
+    static List<Integer> inorderTraversal(TreeNode root) {
+        //Центрированный тип обхода (Inorder traversal)
+        // Сначала посетите все узлы в левом поддереве
+        // Затем корневой узел
+        // Посетите все узлы в правом поддереве
+        List<Integer> res = new ArrayList<>();
+        helperInorderTraversal(root, res);
+        return res;
+    }
+
+    private static void helperInorderTraversal(TreeNode root, List<Integer> res) {
+        if (root != null) {
+            if (root.leftNode != null) {
+                helperInorderTraversal(root.leftNode, res);
+            }
+            res.add(root.value);
+            if (root.rightNode != null) {
+                helperInorderTraversal(root.rightNode, res);
+            }
         }
     }
 }
