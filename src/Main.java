@@ -11,7 +11,11 @@ public class Main {
         //   for (Integer integer : inOrderList = TreeNode.inorderTraversal(root1)) {
         //       System.out.println(integer);
         //    }
-        for (Integer integer : inOrderList = TreeNode.inorderTraversal(root)) {
+        //for (Integer integer : inOrderList = TreeNode.inorderTraversal(root)) {
+        //    System.out.println(integer);
+        // }
+        List<Integer> preOrderList = new LinkedList<>();
+        for (Integer integer : inOrderList = TreeNode.preorderTraversal(root)) {
             System.out.println(integer);
         }
     }
