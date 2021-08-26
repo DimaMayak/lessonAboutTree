@@ -1,3 +1,5 @@
+import org.w3c.dom.Node;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,6 +70,55 @@ class TreeNode {
             if (root.rightNode != null) {
                 helperInorderTraversal(root.rightNode, res);
             }
+        }
+    }
+
+    static List<Integer> preorderTraversal(TreeNode root) {
+        //Прямой тип обхода (Pre-order traversal)
+        // Посетить корень
+        // Обойти левое поддерево
+        // Обойти правое поддерево
+        List<Integer> res = new ArrayList<>();
+        helperPreorderTraversal(root, res);
+        return res;
+
+    }
+
+    private static void helperPreorderTraversal(TreeNode root, List<Integer> res) {
+        if (root != null) {
+            res.add(root.value);
+            if (root.leftNode != null) {
+                helperPreorderTraversal(root.leftNode, res);
+            }
+
+            if (root.rightNode != null) {
+                helperPreorderTraversal(root.rightNode, res);
+            }
+        }
+    }
+
+    static List<Integer> postOrderTraversal(TreeNode root) {
+        //Обратный тип обхода (Post-order traversal)
+        // Обойти левое поддерево
+        // Обойти правое поддерево
+        // Посетить корень
+        List<Integer> res = new ArrayList<>();
+        helperPostorderTraversal(root, res);
+        return res;
+
+    }
+
+    private static void helperPostorderTraversal(TreeNode root, List<Integer> res) {
+        if (root != null) {
+
+            if (root.leftNode != null) {
+                helperPostorderTraversal(root.leftNode, res);
+            }
+
+            if (root.rightNode != null) {
+                helperPostorderTraversal(root.rightNode, res);
+            }
+            res.add(root.value);
         }
     }
 }
