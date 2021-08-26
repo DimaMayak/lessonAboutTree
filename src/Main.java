@@ -18,9 +18,9 @@ public class Main {
         // for (Integer integer : preOrderList = TreeNode.preorderTraversal(root)) {
         //     System.out.println(integer);
         // }
-        // List<Integer> postOrderList = new LinkedList<>();
-        // for (Integer integer : postOrderList = TreeNode.postOrderTraversal(root)) {
-        //     System.out.println(integer);
-        // }
+         List<Integer> postOrderList = new LinkedList<>();
+         for (Integer integer : postOrderList = TreeNode.postOrderTraversal(root)) {
+             System.out.println(integer);
+         }
     }
 }
